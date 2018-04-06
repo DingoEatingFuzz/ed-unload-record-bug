@@ -3,7 +3,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'ed-link-has-many',
+    modulePrefix: 'ed-unload-record-bug',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -14,14 +14,14 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
   if (environment === 'development') {
@@ -45,7 +45,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.locationType = 'hash';
-    ENV.rootURL = '/ed-link-has-many/';
+    ENV.rootURL = '/ed-unload-record-bug';
     // here you can enable a production-specific feature
   }
 
