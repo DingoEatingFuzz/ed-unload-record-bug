@@ -1,5 +1,133 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="container">
+  <ol class="menu">
+    <li>
+      <h3>
+        Load all publishers
+        <button onclick={{action "loadPublishers"}}>Load</button>
+      </h3>
+    </li>
+    <li>
+      <h3>
+        Load all authors
+        <button onclick={{action "loadAuthors"}}>Load</button>
+      </h3>
+    </li>
+  </ol>
+  <div class="page">
+    {{#if publishers}}
+      <h2>All Publishers ({{publishers.length}})</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Founded Year</th>
+            <th>Founded By</th>
+            <th># Books</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each publishers as |p|}}
+            <tr>
+              <td>{{p.id}}</td>
+              <td>{{p.name}}</td>
+              <td>{{p.founded}}</td>
+              <td>{{p.founder}}</td>
+              <td>{{p.books.length}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    {{#if publisher}}
+      <h2>Publisher: {{publisher.name}} ({{publisher.id}})</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Author</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each publisher.books as |book|}}
+            <tr>
+              <td>{{book.id}}</td>
+              <td>{{book.name}}</td>
+              <td>{{book.description}}</td>
+              <td>{{book.author.name}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    {{#if authors}}
+      <h2>All Authors ({{authors.length}})</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th># Books</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each authors as |a|}}
+            <tr>
+              <td>{{a.id}}</td>
+              <td>{{a.name}}</td>
+              <td>{{a.books.length}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    {{#if author}}
+      <h2>Author: {{author.name}} ({{author.id}})</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Publisher</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each author.books as |book|}}
+            <tr>
+              <td>{{book.id}}</td>
+              <td>{{book.name}}</td>
+              <td>{{book.description}}</td>
+              <td>{{book.publisher.name}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    {{#if books.length}}
+      <h2>All Books ({{books.length}})</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Publisher</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each books as |b|}}
+            <tr>
+              <td>{{b.id}}</td>
+              <td>{{b.name}}</td>
+              <td>{{b.author.name}}</td>
+              <td>{{b.publisher.name}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+  </div>
+</div>
