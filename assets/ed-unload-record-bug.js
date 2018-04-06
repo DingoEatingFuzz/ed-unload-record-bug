@@ -635,6 +635,6 @@ catch(err) {
 });
 
 if (!runningTests) {
-  require("ed-unload-record-bug/app")["default"].create({"name":"ed-unload-record-bug","version":"0.0.0+8dcd31f9"});
+  require("ed-unload-record-bug/app")["default"].create({"name":"ed-unload-record-bug","version":"0.0.0+883b2b33"});
 }
 //# sourceMappingURL=ed-unload-record-bug.map
