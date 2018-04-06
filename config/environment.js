@@ -5,7 +5,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ed-unload-record-bug',
     environment,
-    rootURL: '/',
+    rootURL: '/ed-unload-record-bug',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
